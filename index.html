@@ -1,1 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doktortitelgenerator</title>
+</head>
+<body>
+    
+    <style>
 
+        .div
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .textarea
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 100px;
+        }
+
+        #idResult
+        {
+            width: 400px; 
+            height: 120px; 
+            resize: none;
+            color: black;
+            font-weight: bold;
+        }
+
+        #idLänge
+        {
+            border: 0; 
+            width: 53.57px; 
+            display: flex;
+            border-radius: 5px;
+            border: 0.5px solif black;
+            border: 1px solid black;
+        }
+
+        button
+        {
+            width: 100px;
+            height: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            background-color: blue;
+            color: white;
+            border: 0;
+            letter-spacing: 0.5px;
+            border-radius: 5px;
+            transition: 300ms ease-in-out;
+        }
+
+        button:hover
+        {
+            letter-spacing: 1.5px;
+            border-radius: 30px;
+        }
+
+    </style>
+    
+    <form>
+        <div class="div">
+            <input placeholder="Name" id="idName">
+        </div>
+
+        <div class="textarea">
+            <textarea id="idResult" disabled placeholder="Ihr Doktortitel erscheint hier"></textarea>
+        </div>
+
+        <p>
+
+        <div class="div">
+            <button onclick="generate(doktortitel)" type="button">Doktortitel Generieren</button>
+        </div>
+    </form>
+
+    <script>
+
+        function generate(array) {
+            const name = document.getElementById("idName").value
+            const titel = [...new Set(array)]; 
+            const länge = titel.length; 
+            const eingegLänge = document.getElementById("idLänge")
+            let resultArray = [];
+
+            
+            const randomIndex = Math.floor(Math.random() * titel.length);
+            resultArray.push(titel[randomIndex]);
+            titel.splice(randomIndex, 1); 
+            
+
+            const Endung = document.getElementById("nomen")
+            const result = resultArray.join(' ')
+            const ergebnis = document.getElementById("idResult")
+            let ausgabe = "Herr " + result + " " + name
+            ergebnis.value = ausgabe.charAt(0).toUpperCase() + ausgabe.slice(1)
+        }
+
+        const doktortitel = [
+  "Dr. der Agrarwissenschaft",
+  "Dr. B.A./D.B.A. (Business Administration) – Doctor of Business Administration",
+  "Dr. biol. anim. (biologiae animalis) – Doktor der Tierphysiologie",
+  "Dr. biol. hom. (biologiae hominis) – Doktor der Humanbiologie",
+  "Dr. cult. (culturae) – Doktor der Kulturwissenschaften",
+  "Dr. disc. pol. (disciplinarum politicarum) – Doktor der Sozialwissenschaften an der Georg-August-Universität Göttingen (Politik- und Sozialwissenschaften)",
+  "Dr.-Ing. (Doktoringenieur) – Doktor der Ingenieurwissenschaften",
+  "Dr. iur. (iuris) – Doktor der Rechte bzw. Doktor des Rechts",
+  "Dr. iur. can. (iuris canonici) – Doktor der kanonischen Rechtswissenschaften",
+  "Dr. iur. et rer. pol. (iuris et rerum politicarum) – Doktor der Rechts- und Staatswissenschaften",
+  "Dr. iur. utr. (iuris utriusque) – Doktor beider Rechte (weltliches und kirchliches Recht)",
+  "Dr. math. (mathematicae) – Doktor der Mathematik",
+  "Dr. med. (medicinae) – Doktor der Medizin",
+  "Dr. med. dent. (medicinae dentariae) – Doktor der Zahnheilkunde/Zahnmedizin",
+  "Dr. med. sci. (medicinae scientiae) – Doktor der Medizinischen Wissenschaft",
+  "Dr. med. vet. (medicinae veterinariae) – Doktor der Tiermedizin",
+  "Dr. nat. med. (naturalium medicinae) – Doktor der naturwissenschaftlichen Medizin",
+  "Dr. nat. techn. (naturalium technicarum) – Doktor der Bodenkultur",
+  "Dr. oec. (oeconomiae) – Doktor der Wirtschafts-/Verwaltungswissenschaften",
+  "Dr. oec. publ. (oeconomiae publicae) – Doktor der Staatswissenschaften/Volkswirtschaft",
+  "Dr. oec. troph. (oecotrophologiae) – Doktor der Ernährungswissenschaften/Haushaltswissenschaft",
+  "Dr. paed. (paedagogiae) – Doktor der Erziehungswissenschaften",
+  "Dr. pharm. (pharmaciae) – Doktor der Pharmazie",
+  "Dr. phil. (philosophiae) – Doktor der Philosophie",
+  "Dr. phil. in art. (philosophiae in artibus) – Doktor der Philosophie in den Künsten",
+  "Dr. phil. nat. (philosophiae naturalis) – Doktor der Naturwissenschaften",
+  "Dr. PH (public health) – Doktor der Public Health",
+  "Dr. rer. agr. (rerum agriculturarum) – Doktor der Landbauwissenschaften",
+  "Dr. rer. biol. hum. (rerum biologiae humanae) – Doktor der Humanbiologie",
+  "Dr. rer. biol. vet. (rerum biologiae veterinariae) – Doktor der Veterinärbiologie",
+  "Dr. rer. cult. (rerum culturarum) – Doktor der Kulturwissenschaften",
+  "Dr. rer. cur. (rerum curae) – Doktor der Pflegewissenschaften",
+  "Dr. rer. forest. (rerum forestalium) – Doktor der Forstwissenschaften",
+  "Dr. rer. hort. (rerum horticulturarum) – Doktor der Gartenbauwissenschaften",
+  "Dr. rer. hum. (rerum humanarum) – Doktor der Medizinwissenschaften",
+  "Dr. rer. med. (rerum medicarum) – Doktor der Medizinwissenschaften",
+  "Dr. rer. medic. (rerum medicinalium) – Doktor der theoretischen Medizin",
+  "Dr. rer. merc. (rerum mercantilium) – Doktor der Handelswissenschaften",
+  "Dr. rer. mont. (rerum montanarum) – Doktor der Bergbauwissenschaften",
+  "Dr. rer. nat. (rerum naturalium) – Doktor der Naturwissenschaften",
+  "Dr. rer. oec. (rerum oeconomicarum) – Doktor der Wirtschaftswissenschaften",
+  "Dr. rer. physiol. (rerum physiologicarum) – Doktor der Humanbiologie",
+  "Dr. rer. pol. (rerum politicarum) – Doktor der Politikwissenschaft",
+  "Dr. rer. publ. (rerum publicarum) – Doktor der Verwaltungswissenschaften",
+  "Dr. rer. sec. (rerum securitatis) – Doktor der Sicherheitswissenschaften",
+  "Dr. rer. silv. (rerum silvestrium) – Doktor der Forstwissenschaften",
+  "Dr. rer. soc. (rerum socialium) – Doktor der Sozialwissenschaften",
+  "Dr. rer. sust. (rerum sustineri) – Doktor der Nachhaltigkeitswissenschaften",
+  "Dr. rer. tech. (rerum technicarium) – Doktor der Technischen Wissenschaften",
+  "Dr. sc. agr. (scientiarum agrarium) – Doktor der Agrarwissenschaften",
+  "Dr. sc. ed. (scientiarum educationis) – Doktor der Didaktik der Naturwissenschaften",
+  "Dr. sc. hum. (scientiarum humanarum) – Doktor der Humanwissenschaften",
+  "Dr. sc. mus. (scientiae musicae) – Doktor der Musikwissenschaften",
+  "Dr. sc. oec. (scientiarum oeconomicarum) – Doktor der Wirtschaftswissenschaften",
+  "Dr. sc. phil. (scientiarum philosophiae) – Doktor der Philosophiewissenschaften",
+  "Dr. sc. pol. (scientiarum politicarum) – Doktor der Wirtschafts- und Sozialwissenschaften",
+  "Dr. sc. soc. (scientiae socialis) – Doktor der Sozialwissenschaften",
+  "Dr. sc. techn. (scientiarum technicarum) – Doktor der technischen Wissenschaften",
+  "Dr. Sportwiss. (Sportwissenschaften) – Doktor der Sportwissenschaften",
+  "Dr. theol. (theologiae) – Doktor der Theologie",
+  "Dr. troph. (trophologiae) – Doktor der Ernährungswissenschaft"
+];
+
+
+    </script>
+
+</body>
+</html>
